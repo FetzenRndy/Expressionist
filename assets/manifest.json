@@ -1,8 +1,8 @@
 {
 	"manifest_version": 2,
 
-	"name": "Chrome Extension TypeScript Starter",
-	"description": "Chrome Extension, TypeScript, Visual Studio Code",
+	"name": "Expressionist",
+	"description": "A chrome extension that helps your express yourself when using text.",
 	"version": "1.0",
 
 	"icons": {
