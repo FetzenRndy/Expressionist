@@ -1,0 +1,20 @@
+{
+  "name": "expressionist",
+  "author": "Patrick Hollweck",
+  "license": "MIT",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "webpack --mode=production",
+    "watch": "webpack -w --mode=development"
+  },
+  "devDependencies": {
+    "@types/chrome": "0.0.81",
+    "ts-loader": "5.3.3",
+    "typescript": "3.4.3",
+    "webpack": "4.29.6",
+    "webpack-cli": "^3.3.0"
+  },
+  "dependencies": {
+    "copy-webpack-plugin": "^5.0.2"
+  }
+}
