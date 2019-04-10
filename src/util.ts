@@ -1,7 +1,7 @@
 export const log = (...args): void => {
-  console.log(...args);
+	console.log(...args);
 };
 
 export interface IPerson {
-  name: string;
+	name: string;
 }

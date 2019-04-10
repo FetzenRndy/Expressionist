@@ -5,5 +5,5 @@ import { log } from "./util";
  * We ask the background it's guess about who is the chosen one in Star Wars
  */
 chrome.runtime.sendMessage({ question: "Who is the chosen one?" }, response => {
-  log(response);
+	log(response);
 });
