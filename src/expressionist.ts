@@ -1,5 +1,9 @@
+// TODO: Maybe take a "options" argument with config.
 export function expressionist(input: string): string {
+	// TODO: Dynamically build this regex. Maybe later we want to have multiple start/end characters.
 	const regex = /{(.*?)}/g;
+
+	// TODO: Use .exec to get the start index and then parse from there.
 	const expressions = input.match(regex);
 
 	if (!expressions) {
@@ -7,16 +11,11 @@ export function expressionist(input: string): string {
 	}
 
 	expressions.forEach((expression: string) => {
-		const originalExpression = expression;
-		let compiledExpression = expression.substring(1, expression.length - 1);
-
-		if (compiledExpression.match(regex)) {
-			compiledExpression = expressionist(compiledExpression);
-		}
-
+		// TODO: Can we make this eval safe/-ish ?
 		// tslint:disable-next-line:no-eval
-		const evalResult = eval(compiledExpression);
-		input = input.replace(originalExpression, evalResult);
+		const evalResult = eval(expression);
+
+		input = input.replace(expression, evalResult);
 	});
 
 	return input;
