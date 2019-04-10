@@ -67,14 +67,8 @@ function expresser(input: string): string {
 		const originalExpression = expression;
 		let compiledExpression = expression.substring(1, expression.length - 1);
 
-		if (compiledExpression.startsWith("!")) {
-			const parts = compiledExpression.split(" ");
-			let command = parts[0];
-			const args = compiledExpression.replace(command + " ", "");
-
-			command = command.substring(1);
-
-			compiledExpression = `{${command}("${args}")}`;
+		if (compiledExpression.match(regex)) {
+			compiledExpression = expresser(compiledExpression);
 		}
 
 		// tslint:disable-next-line:no-eval
