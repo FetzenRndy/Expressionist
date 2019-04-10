@@ -1,5 +1,5 @@
-import { isTextBox } from "./DOMutil";
-import { expressionist } from "./expressionist";
+import { isTextBox } from "../DOMutil";
+import { expressionist } from "../expressionist";
 
 // Puts the "randomCase" function in the global window scope. Used for testing.
 // TODO: Do processing in background-script so we do not pollute the global namespace.
