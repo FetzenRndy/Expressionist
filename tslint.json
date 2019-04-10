@@ -3,6 +3,9 @@
   "extends": ["tslint:recommended"],
   "jsRules": {},
   "rules": {
+    "no-console": false,
+    "trailing-comma": false,
+    "indent": [true, "tabs", 2],
     "typedef": false
   },
   "rulesDirectory": []
