@@ -27,7 +27,11 @@ document.addEventListener("keyup", (event: KeyboardEvent) => {
 		if (document.activeElement && isTextBox(document.activeElement)) {
 			// If we have a text box, process the input and set the result to the value of the input box
 			(document.activeElement as HTMLInputElement).value = expressionist(
-				(document.activeElement as HTMLInputElement).value
+				(document.activeElement as HTMLInputElement).value,
+				{
+					startChar: "{{",
+					endChar: "}}",
+				}
 			);
 		}
 	}
