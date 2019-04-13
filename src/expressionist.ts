@@ -13,9 +13,7 @@ export function expressionist(input: string, options: ExpressionistOptions): str
 		return input;
 	}
 
-	replaceWithEval(input, expressions);
-
-	return input;
+	return replaceWithEval(input, expressions);
 }
 
 function replaceWithEval(input, expressions) {
