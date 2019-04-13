@@ -1,8 +1,15 @@
+# Build and library files.
+
 npm-debug.log
 node_modules/
 dist
 tmp
-idea
 
-*.vs
+# Editor files.
+
+.idea
+
+# Key / Config files.
+
 *.pem
+*.vs
