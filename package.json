@@ -1,22 +1,23 @@
 {
-  "name": "expressionist",
-  "author": "Patrick Hollweck",
-  "license": "MIT",
-  "version": "0.0.1",
-  "scripts": {
-    "build": "webpack --mode=production",
-    "watch": "webpack -w --mode=development",
-    "test": "jest"
-  },
-  "devDependencies": {
-    "@types/chrome": "0.0.81",
-    "@types/jest": "^24.0.11",
-    "jest": "^24.7.1",
-    "ts-jest": "^24.0.2",
-    "ts-loader": "5.3.3",
-    "typescript": "3.4.3",
-    "webpack": "4.29.6",
-    "webpack-cli": "^3.3.0",
-  	"copy-webpack-plugin": "^5.0.2"
-  }
+	"name": "expressionist",
+	"author": "Patrick Hollweck",
+	"license": "MIT",
+	"version": "0.0.1",
+	"scripts": {
+		"build": "webpack --mode=production",
+		"watch": "webpack -w --mode=development",
+		"test": "jest",
+		"test:watch": "jest --watch"
+	},
+	"devDependencies": {
+		"@types/chrome": "0.0.81",
+		"@types/jest": "^24.0.11",
+		"jest": "^24.7.1",
+		"ts-jest": "^24.0.2",
+		"ts-loader": "5.3.3",
+		"typescript": "3.4.3",
+		"webpack": "4.29.6",
+		"webpack-cli": "^3.3.0",
+		"copy-webpack-plugin": "^5.0.2"
+	}
 }
