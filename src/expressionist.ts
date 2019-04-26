@@ -1,10 +1,16 @@
 type ExpressionistOptions = {
-	startChar: string,
-	endChar: string,
+	startChar: string;
+	endChar: string;
 };
 
-export function expressionist(input: string, options: ExpressionistOptions): string {
-	const regex = new RegExp(`${options.startChar}(.*?)${options.endChar}`, "g");
+export function expressionist(
+	input: string,
+	options: ExpressionistOptions
+): string {
+	const regex = new RegExp(
+		`${options.startChar}(.*?)${options.endChar}`,
+		"g"
+	);
 
 	// TODO: Use .exec to get the start index and then parse from there.
 	const expressions = input.match(regex);
