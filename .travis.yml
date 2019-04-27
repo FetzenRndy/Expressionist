@@ -19,5 +19,6 @@ cache:
     - 'node_modules'
 
 script:
+  - ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
   - yarn run build
   - yarn run test
