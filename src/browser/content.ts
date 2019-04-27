@@ -22,7 +22,6 @@ document.addEventListener("keyup", (event: KeyboardEvent) => {
 	// Check if we should process the content.
 	// Currently checks for the alt+enter key combo.
 	// TODO: Make this configurable.
-	console.log("Expressionist activated!");
 	if (event.keyCode === 13 && event.ctrlKey) {
 		// Check if a element is active and check if the current element is a textbox.
 		if (document.activeElement && isTextBox(document.activeElement)) {
