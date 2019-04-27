@@ -5,7 +5,7 @@
 	"version": "0.0.1",
 	"scripts": {
 		"build": "webpack --mode=production",
-		"watch": "webpack -w --mode=development",
+		"build:watch": "webpack -w --mode=development",
 		"test": "jest",
 		"test:watch": "jest --watch"
 	},
