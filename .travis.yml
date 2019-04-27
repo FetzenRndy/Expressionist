@@ -17,5 +17,4 @@ cache:
 
 script:
   - tslint --project ./tsconfig.json
-  - npm run build
   - npm run test

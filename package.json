@@ -3,6 +3,10 @@
 	"author": "Patrick Hollweck",
 	"license": "MIT",
 	"version": "0.0.1",
+	"repository": {
+		"type": "GitHub",
+		"url": "https://github.com/PatrickHollweck/Expressionist"
+	},
 	"scripts": {
 		"build": "webpack --bail --mode=production --config webpack.config.js",
 		"build:watch": "webpack -w --mode=development --config webpack.config.js",
