@@ -27,4 +27,3 @@ export class T_Factory {
 		return new Token(TokenKind.ExpressionEnd, null);
 	}
 }
-

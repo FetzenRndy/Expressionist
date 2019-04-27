@@ -2,7 +2,10 @@ import { buildAST, Node, NodeKind } from "./Parser";
 import { ExpressionistOptions } from "../Expressionist";
 import { tokenize } from "./Lexer";
 
-export function evalUserInput(input: string, options: ExpressionistOptions): string {
+export function evalUserInput(
+	input: string,
+	options: ExpressionistOptions
+): string {
 	while (true) {
 		const firstStartIndex = input.indexOf(options.startChar);
 
@@ -28,8 +31,8 @@ function evalExpression(
 function evaluateAST(ast: Node): string {
 	let result = "";
 
-	for(const child of ast.children) {
-		switch(child.kind) {
+	for (const child of ast.children) {
+		switch (child.kind) {
 			case NodeKind.Text:
 				result += child.token.source;
 				break;
@@ -47,8 +50,8 @@ function evaluateAST(ast: Node): string {
 function buildSourceFromAST(node: Node, source = ""): string {
 	source += node.token.source;
 
-	for(const nested of node.children) {
-		if(nested.children.length > 0) {
+	for (const nested of node.children) {
+		if (nested.children.length > 0) {
 			source += buildSourceFromAST(nested, source);
 		}
 
@@ -64,5 +67,6 @@ function evaluateSourceAST(node: Node): string {
 }
 
 function evalSource(source: string) {
+	// tslint:disable-next-line:no-eval
 	return eval(source);
 }

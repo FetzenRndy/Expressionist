@@ -1,6 +1,6 @@
 import { T_Factory, tokenize } from "../../src/interpreter/Lexer";
 import { NodeKind, buildAST } from "../../src/interpreter/Parser";
-import {DefaultOptions} from "../util/DefaultOptions";
+import { DefaultOptions } from "../util/DefaultOptions";
 
 describe("Parser AST", () => {
 	it("should put the first expression source as the first child of the head", () => {
@@ -18,7 +18,9 @@ describe("Parser AST", () => {
 		expect(ast.children[0].token).toEqual(T_Factory.Text("1+"));
 		expect(ast.children[0].kind).toEqual(NodeKind.Source);
 
-		expect(ast.children[0].children[0].token).toEqual(T_Factory.Text("2+2"));
+		expect(ast.children[0].children[0].token).toEqual(
+			T_Factory.Text("2+2")
+		);
 		expect(ast.children[0].children[0].kind).toEqual(NodeKind.Source);
 	});
 
@@ -35,8 +37,4 @@ describe("Parser AST", () => {
 		expect(ast.children[2].token).toEqual(T_Factory.Text("b"));
 		expect(ast.children[2].kind).toEqual(NodeKind.Text);
 	});
-
-	// it("should work with multiple expression starts", () => {
-	//	const tokens = tokenize("{{2+2}+1,}", )
-	// });
 });

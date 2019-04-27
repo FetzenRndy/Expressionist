@@ -3,7 +3,7 @@ import { Token, TokenKind } from "./Lexer";
 export enum NodeKind {
 	Head,
 	Text,
-	Source,
+	Source
 }
 
 export class Node {
@@ -32,7 +32,6 @@ export class Node {
 	}
 }
 
-
 export function buildAST(tokens: Token[]) {
 	const head = Node.makeHead();
 
@@ -41,22 +40,26 @@ export function buildAST(tokens: Token[]) {
 	let nestCount = 0;
 	let previousNestCount = 0;
 
-	for(const token of tokens) {
-		switch(token.kind) {
+	for (const token of tokens) {
+		switch (token.kind) {
 			case TokenKind.Text:
-				if(nestCount === 0 && previousNestCount === 0) {
+				if (nestCount === 0 && previousNestCount === 0) {
 					currentBranch.addChild(NodeKind.Text, token);
 				} else {
-					if(previousNestCount < nestCount) {
-						currentBranch = currentBranch.addChild(NodeKind.Source, token);
+					if (previousNestCount < nestCount) {
+						currentBranch = currentBranch.addChild(
+							NodeKind.Source,
+							token
+						);
 					} else if (previousNestCount > nestCount) {
 						const difference = previousNestCount - nestCount;
 
-						for(let i = 0; i < difference; i++) {
+						for (let i = 0; i < difference; i++) {
 							currentBranch = currentBranch.parent;
 						}
 
-						const type = nestCount === 0 ? NodeKind.Text : NodeKind.Source;
+						const type =
+							nestCount === 0 ? NodeKind.Text : NodeKind.Source;
 						currentBranch = currentBranch.addChild(type, token);
 					} else {
 						currentBranch.addChild(NodeKind.Source, token);
@@ -73,7 +76,11 @@ export function buildAST(tokens: Token[]) {
 				nestCount--;
 				break;
 			default:
-				throw new Error(`Unimplemented token encountered in Parser! Kind was: ${token.kind}`);
+				throw new Error(
+					`Unimplemented token encountered in Parser! Kind was: ${
+						token.kind
+					}`
+				);
 		}
 	}
 

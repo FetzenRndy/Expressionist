@@ -63,10 +63,10 @@ function joinSources(tokens: Token[]): Token[] {
 	let current = "";
 
 	for (const token of tokens) {
-		if(token.kind === TokenKind.Text) {
+		if (token.kind === TokenKind.Text) {
 			current += token.source;
 
-			if(token === tokens[tokens.length - 1]) {
+			if (token === tokens[tokens.length - 1]) {
 				joined.push(T_Factory.Text(current));
 			}
 		} else {

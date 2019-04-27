@@ -34,7 +34,7 @@ describe("Lexer", () => {
 			T_Factory.Text("abc"),
 			T_Factory.ExpressionStart(),
 			T_Factory.Text("1+1"),
-			T_Factory.ExpressionEnd(),
+			T_Factory.ExpressionEnd()
 		]);
 	});
 
@@ -45,8 +45,8 @@ describe("Lexer", () => {
 			T_Factory.ExpressionEnd(),
 			T_Factory.ExpressionStart(),
 			T_Factory.Text("2+2"),
-			T_Factory.ExpressionEnd(),
-		])
+			T_Factory.ExpressionEnd()
+		]);
 	});
 
 	it("should not care about whitespace", () => {
@@ -54,7 +54,7 @@ describe("Lexer", () => {
 			T_Factory.Text("a b c "),
 			T_Factory.ExpressionStart(),
 			T_Factory.Text(" 1 +  2"),
-			T_Factory.ExpressionEnd(),
+			T_Factory.ExpressionEnd()
 		]);
 	});
 
@@ -64,7 +64,7 @@ describe("Lexer", () => {
 			T_Factory.ExpressionStart(),
 			T_Factory.Text("1+1"),
 			T_Factory.ExpressionEnd(),
-			T_Factory.Text("b"),
+			T_Factory.Text("b")
 		]);
 	});
 });
