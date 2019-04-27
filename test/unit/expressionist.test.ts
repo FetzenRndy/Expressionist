@@ -1,4 +1,4 @@
-import { expressionist } from "../../src/expressionist";
+import { expressionist } from "../../src/Expressionist";
 
 const defaultOptions = {
 	startChar: "{",
