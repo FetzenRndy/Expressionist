@@ -7,11 +7,8 @@ branches:
   only:
     - master
 
-before_install:
-  - curl -o- -L https://yarnpkg.com/install.sh | bash
-  - export PATH="$HOME/.yarn/bin:$PATH"
-
-install: yarn --no-progress --frozen-lockfile
+install:
+  - npm install
 
 cache:
   yarn: true
@@ -19,5 +16,6 @@ cache:
     - 'node_modules'
 
 script:
-  - yarn run build
-  - yarn run test
+  - tslint --project ./tsconfig.json
+  - npm run build
+  - npm run test
