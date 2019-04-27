@@ -4,8 +4,8 @@
 	"license": "MIT",
 	"version": "0.0.1",
 	"scripts": {
-		"build": "webpack --mode=production",
-		"build:watch": "webpack -w --mode=development",
+		"build": "webpack --bail --mode=production --config webpack.config.js",
+		"build:watch": "webpack -w --mode=development --config webpack.config.js",
 		"test": "jest",
 		"test:watch": "jest --watch"
 	},
