@@ -33,9 +33,11 @@ A web-extension that allows you to express yourself better by implementing a tex
     -   Nested expressions
 -   `{{1+{{2+2}}` => `5`
     -   Expressions are free-form
--   `{{!rancomCase Hello World}}` => `5`
+-   `{{!repeat 2 Hello World}}` => `Hello World Hello World`
     -   Gets precompiled for convenients
-    -   Is equivalent to `{{randomCase("Hello World");}}`
+	-   `repeat` is a custom text processing function.
+	It receives the string after the call, and in this case it parses the number and repeats the string.
+    -   Is equivalent to `{{repeat("2 Hello World");}}`
 -   `1+1 = {{1+1}} :)` => `1+1 = 2 :)`
     -   Expressions can be mixed with text
 
