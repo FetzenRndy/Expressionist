@@ -2,12 +2,14 @@ import { tokenize } from "../lexer/Lexer";
 import { buildAST } from "../parser/Parser";
 import { Node, NodeKind } from "../parser/Node";
 
-import { ExpressionistOptions } from "../../Expressionist";
+import { InterpreterOptions } from "../../Expressionist";
 
 export function evalUserInput(
 	input: string,
-	options: ExpressionistOptions
+	options: InterpreterOptions
 ): string {
+	validateOptions(options);
+
 	while (true) {
 		const firstStartIndex = input.indexOf(options.startChar);
 
@@ -19,10 +21,18 @@ export function evalUserInput(
 	}
 }
 
+function validateOptions(options: InterpreterOptions) {
+	if (options.endChar === options.startChar) {
+		throw new Error(
+			"The expression start character can not equal the expression end char"
+		);
+	}
+}
+
 function evalExpression(
 	input: string,
 	start: number,
-	options: ExpressionistOptions
+	options: InterpreterOptions
 ): string {
 	const tokens = tokenize(input.substring(start), options);
 	const ast = buildAST(tokens);

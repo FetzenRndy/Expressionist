@@ -1,10 +1,10 @@
-import { ExpressionistOptions } from "../../Expressionist";
+import { InterpreterOptions } from "../../Expressionist";
 import { T_Factory, Token, TokenKind } from "./Token";
 
 // TODO: This is ugly.
 function lex(
 	input: string,
-	options: ExpressionistOptions,
+	options: InterpreterOptions,
 	definitions: Array<{ match: string | null; make: (match: string) => Token }>
 ) {
 	let tokens = new Array<Token>();
@@ -83,7 +83,7 @@ function joinSources(tokens: Token[]): Token[] {
 	return joined;
 }
 
-export function tokenize(input: string, options: ExpressionistOptions) {
+export function tokenize(input: string, options: InterpreterOptions) {
 	return lex(input, options, [
 		{
 			match: options.startChar,

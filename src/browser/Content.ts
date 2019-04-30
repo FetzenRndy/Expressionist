@@ -1,5 +1,5 @@
 import { isTextBox } from "../DOMutil";
-import { expressionist } from "../expressionist";
+import { expressionist, ExpressionistOptions } from "../expressionist";
 
 // Puts the "randomCase" function in the global window scope. Used for testing.
 // TODO: Do processing in background-script so we do not pollute the global namespace.
@@ -19,6 +19,13 @@ const randomCase = (input: string) =>
  * text-inputs token to the result.
  */
 document.addEventListener("keyup", (event: KeyboardEvent) => {
+	const options: ExpressionistOptions = {
+		interpreter: {
+			startChar: "~",
+			endChar: "~"
+		}
+	};
+
 	// Check if we should process the content.
 	// Currently checks for the alt+enter key combo.
 	// TODO: Make this configurable.
@@ -28,10 +35,7 @@ document.addEventListener("keyup", (event: KeyboardEvent) => {
 			// If we have a text box, process the input and set the result to the token of the input box
 			(document.activeElement as HTMLInputElement).value = expressionist(
 				(document.activeElement as HTMLInputElement).value,
-				{
-					startChar: "~",
-					endChar: "~"
-				}
+				options
 			);
 		}
 	}
