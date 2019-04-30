@@ -4,7 +4,7 @@
 
 ## Introduction
 
-A web-extension that allows you to express yourself better by implementing a text expression evaluator.
+The **Expressionist** is a web-extension that allows you to express yourself better by implementing a text expression evaluator.
 
 ### Features
 
@@ -69,3 +69,4 @@ A web-extension that allows you to express yourself better by implementing a tex
     - `npm run test`
     - or (for automatically-rerunning the tests when the source changes)
     - `npm run test:watch`
+3. **Profit**
