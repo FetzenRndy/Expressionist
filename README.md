@@ -29,9 +29,9 @@ The **Expressionist** is a web-extension that allows you to express yourself bet
 
 -   `{{ 1 + 1 }}` => `2`
     -   Most basic expression
--   `{{ 1 + {{ 2 + 2 }}` => `5`
+-   `{{ 1 + {{ 2 + 2 }} }}` => `5`
     -   Nested expressions
--   `{{1+{{2+2}}` => `5`
+-   `{{1+{{2+2}}}}` => `5`
     -   Expressions are free-form
 -   `{{!repeat 2 Hello World}}` => `Hello World Hello World`
     -   Gets precompiled for convenients
