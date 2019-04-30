@@ -1,36 +1,5 @@
-import { Token, TokenKind } from "./Lexer";
-
-export enum NodeKind {
-	Head,
-	Text,
-	Source
-}
-
-export class Node {
-	public readonly kind: NodeKind;
-	public readonly token: Token;
-
-	public readonly children: Node[];
-	public readonly parent: Node;
-
-	private constructor(kind: NodeKind, value: Token, parent: Node) {
-		this.kind = kind;
-		this.token = value;
-		this.children = [];
-		this.parent = parent;
-	}
-
-	public static makeHead() {
-		return new Node(NodeKind.Head, null!, null!);
-	}
-
-	public addChild(kind: NodeKind, token: Token): Node {
-		const newNode = new Node(kind, token, this);
-		this.children.push(newNode);
-
-		return newNode;
-	}
-}
+import { Token, TokenKind } from "../lexer/Lexer";
+import { Node, NodeKind } from "./Node";
 
 export function buildAST(tokens: Token[]) {
 	const head = Node.makeHead();
@@ -68,11 +37,11 @@ export function buildAST(tokens: Token[]) {
 
 				break;
 			case TokenKind.ExpressionStart:
-				previousNestCount = copy(nestCount);
+				previousNestCount = shallowCopy(nestCount);
 				nestCount++;
 				break;
 			case TokenKind.ExpressionEnd:
-				previousNestCount = copy(nestCount);
+				previousNestCount = shallowCopy(nestCount);
 				nestCount--;
 				break;
 			default:
@@ -87,6 +56,6 @@ export function buildAST(tokens: Token[]) {
 	return head;
 }
 
-function copy<T>(value: T): T {
+function shallowCopy<T>(value: T): T {
 	return JSON.parse(JSON.stringify(value));
 }

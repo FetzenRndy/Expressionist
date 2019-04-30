@@ -1,6 +1,8 @@
-import { buildAST, Node, NodeKind } from "./Parser";
-import { ExpressionistOptions } from "../Expressionist";
-import { tokenize } from "./Lexer";
+import { tokenize } from "../lexer/Lexer";
+import { buildAST } from "../parser/Parser";
+import { Node, NodeKind } from "../parser/Node";
+
+import { ExpressionistOptions } from "../../Expressionist";
 
 export function evalUserInput(
 	input: string,

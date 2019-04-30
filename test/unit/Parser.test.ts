@@ -1,5 +1,4 @@
-import { T_Factory, tokenize } from "../../src/interpreter/Lexer";
-import { NodeKind, buildAST } from "../../src/interpreter/Parser";
+import { T_Factory, NodeKind, tokenize, buildAST } from "../../src/interpreter";
 import { DefaultOptions } from "../util/DefaultOptions";
 
 describe("Parser AST", () => {

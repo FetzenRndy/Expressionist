@@ -1,4 +1,4 @@
-import { evalUserInput } from "./interpreter/Interpreter";
+import { evalUserInput } from "./interpreter/evaluator/Interpreter";
 
 export type ExpressionistOptions = {
 	startChar: string;

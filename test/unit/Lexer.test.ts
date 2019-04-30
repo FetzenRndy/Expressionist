@@ -1,4 +1,4 @@
-import { T_Factory, tokenize } from "../../src/interpreter/Lexer";
+import { T_Factory, tokenize } from "../../src/interpreter";
 
 import { DefaultOptions } from "../util/DefaultOptions";
 
@@ -65,6 +65,38 @@ describe("Lexer", () => {
 			T_Factory.Text("1+1"),
 			T_Factory.ExpressionEnd(),
 			T_Factory.Text("b")
+		]);
+	});
+
+	it("should work with long strings", () => {
+		const source =
+			"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt" +
+			"ut labore et dolore magna aliquyam erat, sed diam voluptua.At vero eos et accusam et justo duo dolores et " +
+			"ea rebum. Stet clita kasd {1+1} Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy " +
+			"eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam " +
+			"et justo duo dolores et ea rebum. Stet clita kasd";
+
+		const result =
+			"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt" +
+			"ut labore et dolore magna aliquyam erat, sed diam voluptua.At vero eos et accusam et justo duo dolores et " +
+			"ea rebum. Stet clita kasd 2 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy " +
+			"eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam " +
+			"et justo duo dolores et ea rebum. Stet clita kasd";
+
+		expect(tokenize(source, DefaultOptions.single)).toEqual([
+			T_Factory.Text(
+				"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt" +
+					"ut labore et dolore magna aliquyam erat, sed diam voluptua.At vero eos et accusam et justo duo dolores et " +
+					"ea rebum. Stet clita kasd "
+			),
+			T_Factory.ExpressionStart(),
+			T_Factory.Text("1+1"),
+			T_Factory.ExpressionEnd(),
+			T_Factory.Text(
+				" Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy " +
+					"eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam " +
+					"et justo duo dolores et ea rebum. Stet clita kasd"
+			)
 		]);
 	});
 });

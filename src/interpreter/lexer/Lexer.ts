@@ -1,4 +1,4 @@
-import { ExpressionistOptions } from "../Expressionist";
+import { ExpressionistOptions } from "../../Expressionist";
 import { T_Factory, Token, TokenKind } from "./Token";
 
 // TODO: This is ugly.
